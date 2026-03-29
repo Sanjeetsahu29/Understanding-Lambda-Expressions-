@@ -33,3 +33,35 @@ Historically, this comes from a system of mathematical logic introduced in the 1
 Modern programming languages stole this exact concept. While the syntax varies slightly by language, the structure is always the same:
 Input -> Transformation
 
+## The Evolution: From Named to Anonymous
+Let’s look at a practical progression using a universally understood language (Python) to see how we arrive at a lambda.
+Step 1: The Traditional Named Function
+Imagine you have a list of numbers, and you want to square them all. The traditional way is to write a named function.
+
+```python
+def square_number(x):
+    return x * x
+
+# We have to name it, define it, and then use it.
+```
+
+Step 2: The Lambda Expression
+We strip away the def, the name square_number, and the return keyword (because it's implied). We are left only with the inputs and the logic.
+
+```python
+lambda x: x * x
+```
+
+It reads exactly like Church's math: Given x, return x * x.
+
+
+4. Why are they so powerful? (Higher-Order Functions)
+Lambda expressions truly shine when you realize Truth #4: Code can be treated as data.
+Many programming languages have functions that accept other functions as arguments. These are called Higher-Order Functions.
+
+The most common ones are:
+- Map: Apply an action to every item in a list.
+- Filter: Keep only the items in a list that meet a condition.
+- Sort: Order a list based on a specific rule.
+Without lambdas, using these is tedious because you have to define a formal function somewhere else just to pass it in. With lambdas, you inject the behavior directly in line.
+Example: Filtering a list for even numbers
