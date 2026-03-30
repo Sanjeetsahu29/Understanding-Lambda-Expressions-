@@ -65,3 +65,38 @@ The most common ones are:
 - Sort: Order a list based on a specific rule.
 Without lambdas, using these is tedious because you have to define a formal function somewhere else just to pass it in. With lambdas, you inject the behavior directly in line.
 Example: Filtering a list for even numbers
+
+<hr>
+
+# Lambda in Java
+In Java, a lambda expression is a compact way to represent a function-like piece of behavior that can be passed around as data
+
+Before lambdas, if you wanted to pass behavior in Java, you usually had to:
+- create a class,
+- implement an interface,
+- override a method,
+- and then pass an object of that class.
+  
+**Example:**
+
+```java
+interface Calculator {
+    int add(int a, int b);
+}
+
+class CalculatorImpl implements Calculator {
+    @Override
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new CalculatorImpl();
+        System.out.println(calculator.add(10, 20));
+    }
+}
+```
+This works, but for a simple piece of behavior, it is too much ceremony.
+Lambda was introduced to reduce this boilerplate and to make Java more expressive for behavior passing, especially in collection processing, streams, callbacks, and event handling.
