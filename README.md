@@ -156,3 +156,19 @@ The difference is:
 - a method belongs to a class,
 - a lambda belongs to a function-like contract,
 - and the compiler converts the lambda into an implementation of the functional interface.
+
+## Functional interfaces in Java
+Some common built-in functional interfaces are:
+- Runnable → void run()
+- Callable<V> → V call()
+- Comparator<T> → int compare(T o1, T o2)
+- Consumer<T> → void accept(T t)
+- Supplier<T> → T get()
+- Function<T, R> → R apply(T t)
+- Predicate<T> → boolean test(T t)
+
+```java
+Runnable r = () -> System.out.println("Running...");
+r.run();
+```
+Here Runnable has only one abstract method run(), so the lambda fits perfectly.
