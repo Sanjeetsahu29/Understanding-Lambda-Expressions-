@@ -172,3 +172,44 @@ Runnable r = () -> System.out.println("Running...");
 r.run();
 ```
 Here Runnable has only one abstract method run(), so the lambda fits perfectly.
+
+## How the compiler understands a lambda
+This is the core mechanism.
+When you write:
+```java
+Calculator c = (a, b) -> a + b;
+```
+
+The compiler does not treat the lambda as an ordinary object literal. It checks:
+- What is the target type?
+  Here it is Calculator.
+- Does Calculator have exactly one abstract method?
+  Yes, add(int, int).
+- Does the lambda signature match that method?
+  Yes, two integers in, integer out.
+
+  
+Then the compiler generates the implementation behind the scenes.
+So the lambda is really compile-time shorthand for an instance of a functional interface.
+
+### Example: old style vs lambda
+Old style
+```java
+List<String> names = Arrays.asList("Ravi", "Amit", "Zoya");
+
+Collections.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return a.compareTo(b);
+    }
+});
+```
+
+Lambda style
+
+```java
+List<String> names = Arrays.asList("Ravi", "Amit", "Zoya");
+
+Collections.sort(names, (a, b) -> a.compareTo(b));
+```
+
