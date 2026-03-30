@@ -137,3 +137,22 @@ System.out.println(calculator.add(10, 20));
 
 Because Java can match the lambda to the single abstract method add(int, int).
 So the lambda is not floating freely. It is assigned to a functional interface type.
+
+
+## Think of lambda as a method without a class
+This is a useful mental model:
+```java
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+
+```java
+(a, b) -> a + b
+```
+
+The difference is:
+- a method belongs to a class,
+- a lambda belongs to a function-like contract,
+- and the compiler converts the lambda into an implementation of the functional interface.
