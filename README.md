@@ -100,3 +100,23 @@ public class Main {
 ```
 This works, but for a simple piece of behavior, it is too much ceremony.
 Lambda was introduced to reduce this boilerplate and to make Java more expressive for behavior passing, especially in collection processing, streams, callbacks, and event handling.
+
+
+## What a lambda really is
+A lambda is an anonymous function.
+That means:
+- no name,
+- no separate class definition required,
+- it can be written inline,
+- and it represents behavior.
+  
+**Example:**
+```java
+(a, b) -> a + b
+```
+This means:
+“Take two inputs a and b, and return their sum.”
+
+
+But in Java, this expression alone is not enough. Java needs a target type to know what the lambda is implementing.
+That target type must be a functional interface.
