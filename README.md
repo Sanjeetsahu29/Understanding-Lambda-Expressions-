@@ -120,3 +120,20 @@ This means:
 
 But in Java, this expression alone is not enough. Java needs a target type to know what the lambda is implementing.
 That target type must be a functional interface.
+
+## Functional interface: the real key
+A functional interface is an interface with exactly one abstract method.
+```java
+@FunctionalInterface
+interface Calculator {
+    int add(int a, int b);
+}
+
+
+Calculator calculator = (a, b) -> a + b;
+System.out.println(calculator.add(10, 20));
+
+```
+
+Because Java can match the lambda to the single abstract method add(int, int).
+So the lambda is not floating freely. It is assigned to a functional interface type.
