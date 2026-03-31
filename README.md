@@ -229,3 +229,19 @@ Here:
 - name -> name.startsWith("A") is a Predicate<String>
 - name -> System.out.println(name) is a Consumer<String>
 This is one of the biggest practical uses of lambdas in modern Java.
+
+## Parameter types in lambdas
+Java usually infers parameter types from context.
+```java
+Calculator c = (a, b) -> a + b;
+```
+
+You do not need to write:
+```java
+Calculator c = (int a, int b) -> a + b;
+```
+Both are valid, but type inference keeps code cleaner.
+You can explicitly declare types when needed:
+```java
+Calculator c = (int a, int b) -> a + b;
+```
