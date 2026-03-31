@@ -213,3 +213,19 @@ List<String> names = Arrays.asList("Ravi", "Amit", "Zoya");
 Collections.sort(names, (a, b) -> a.compareTo(b));
 ```
 
+## Lambdas and streams
+Lambdas became especially powerful with the Stream API.
+```java
+List<String> names = Arrays.asList("Amit", "Ravi", "Zoya", "Alok");
+
+names.stream()
+     .filter(name -> name.startsWith("A"))
+     .forEach(name -> System.out.println(name));
+
+```
+
+Here:
+
+- name -> name.startsWith("A") is a Predicate<String>
+- name -> System.out.println(name) is a Consumer<String>
+This is one of the biggest practical uses of lambdas in modern Java.
