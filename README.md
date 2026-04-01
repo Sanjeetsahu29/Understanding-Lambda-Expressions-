@@ -236,6 +236,13 @@ Java usually infers parameter types from context.
 Calculator c = (a, b) -> a + b;
 ```
 
+## Return in lambdas
+
+If the lambda body is a single expression, the return is implicit.
+```java
+(a, b) -> a + b
+```
+
 You do not need to write:
 ```java
 Calculator c = (int a, int b) -> a + b;
@@ -245,3 +252,18 @@ You can explicitly declare types when needed:
 ```java
 Calculator c = (int a, int b) -> a + b;
 ```
+This means return a + b.
+
+If the body has multiple lines, you need explicit return:
+```java
+(a, b) -> {
+    int result = a + b;
+    return result;
+}
+```
+
+If the return type is void, no return is needed:
+```java
+x -> System.out.println(x)
+```
+
